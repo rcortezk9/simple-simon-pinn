@@ -2,3 +2,4 @@
 .idea
 *.iml
 !/simple-simon-pinn.iml
+!/js/simple_simon.js
