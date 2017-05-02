@@ -14,10 +14,12 @@ $(document).ready(function () {
 
 
 //    Audio files
-//     var greenBoop =
-//     var redBoop =
-//     var yellowBoop =
-//     var blueBoop =
+//    var greenBoop =
+//    var redBoop =
+//    var yellowBoop =
+//    var blueBoop =
+//    var scream =
+//    var cheer =
 
 
 //    Functions for when the pads are press
@@ -131,12 +133,77 @@ $(document).ready(function () {
                         setTimeout(simonTurn, 500);
                     } else {
                         $('.display').text('XX');
-
+                        scream.play();
                     }
-
+                }
+            }
+        } else if (playerSays.length === round && round === 20){
+            if (comparedSequence()) {
+                $('.display').text(';)');
+                cheer.play();
+            } else {
+                if (mode === 'safe'){
+                    $('.display').text('?!');
+                    playReset();
+                    setTimeout(displayUpdate, 1000);
+                    setTimeout(simonTurn, 500);
+                } else {
+                    $('.display').text('XX');
+                    scream.play();
                 }
             }
         }
     }
+
+    // Click
+    $("#1").on("click", function() {
+        greenPad();
+        playerSays.push(1);
+        nextRound();
+    });
+
+
+    $("#2").on("click", function() {
+        redPad();
+        playerSays.push(2);
+        nextRound();
+    });
+
+
+    $("#3").on("click", function() {
+        yellowPad();
+        playerSays.push(3);
+        nextRound();
+    });
+
+
+    $("#4").on("click", function() {
+        bluePad();
+        playerSays.push(4);
+        nextRound();
+    });
+
+    // Start button
+    $("#start-button").on("click", function() {
+        gameReset();
+        simonPlays();
+    });
+
+    //strict button
+    $("#strict-button").on("click", function() {
+        if (mode === "safe") {
+            $("#strict-button").css({
+                "background-color": "rgb(217, 0, 0)",
+                "color": "yellow"
+            });
+            mode = "strict";
+        } else {
+            $("#strict-button").css({
+                "background-color": "rgb(217, 83, 79)",
+                "color": "white"
+            });
+            mode = "safe";
+        }
+    })
 
 });
