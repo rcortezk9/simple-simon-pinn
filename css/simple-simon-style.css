@@ -10,10 +10,6 @@ h1 {
     height: 400px;
     margin: 20px auto;
     padding-top: 5px;
-    /*border-style: solid;*/
-    /*border-radius: 50%;*/
-    /*border-width: 3px;*/
-    /*background-color: rgba(110, 110, 110, 1);*/
 }
 
 .display {
@@ -43,7 +39,6 @@ h1 {
     background-color: green;
     width: 150px;
     height: 150px;
-    /*border-radius: 100% 50px 100px 50px;*/
     left: 30px;
     top: -12px;
 }
@@ -52,7 +47,6 @@ h1 {
     background-color: red;
     width: 150px;
     height: 150px;
-    /*border-radius:  50px 100% 50px 100px;*/
     left: 65px;
     top: -12px;
 }
@@ -61,7 +55,6 @@ h1 {
     background-color: yellow;
     width: 150px;
     height: 150px;
-    /*border-radius: 50px 100px 50px 100%;*/
     left: 30px;
     top: 0;
 }
@@ -70,7 +63,6 @@ h1 {
     background-color: blue;
     width: 150px;
     height: 150px;
-    /*border-radius: 100px 50px 100% 50px;*/
     left: 65px;
     top: 0;
 }
