@@ -14,12 +14,12 @@ $(document).ready(function () {
 
 
 //    Audio files
-//    var greenBoop =
-//    var redBoop =
-//    var yellowBoop =
-//    var blueBoop =
-//    var scream =
-//    var cheer =
+    var greenBoop = new Audio (audio/simonSound1.mp3);
+    var redBoop = new Audio (audio/simonSound2.mp3);
+    var yellowBoop = new Audio (audio/simonSound3.mp3);
+    var blueBoop = new Audio (audio/simonSound4.mp3);
+    var scream = new Audio (audio/scream.mp3);
+    var cheer = new Audio (audio/cheering.mp3);
 
 
 //    Functions for when the pads are press
@@ -28,7 +28,7 @@ $(document).ready(function () {
         setTimeout(function() {
             $(".tl").css("background-color", "green");
         }, 500);
-        // greenBoop.play();
+        greenBoop.play();
     }
 
     function redPad() {
@@ -36,15 +36,15 @@ $(document).ready(function () {
         setTimeout(function() {
             $(".tr").css("background-color", "red");
         }, 500);
-        // redBoop.play();
+        redBoop.play();
     }
 
     function yellowPad() {
-        $(".bl").css("background-color", "#fcffa8");
+        $(".bl").css("background-color", "#ffffbd");
         setTimeout(function() {
             $(".bl").css("background-color", "yellow");
         }, 500);
-        // yellowBoop.play();
+        yellowBoop.play();
     }
 
     function bluePad() {
@@ -52,7 +52,7 @@ $(document).ready(function () {
         setTimeout(function() {
             $(".br").css("background-color", "blue");
         }, 500);
-        // blueBoop.play();
+        blueBoop.play();
     }
 
 //    Populate Simon says
@@ -79,7 +79,7 @@ $(document).ready(function () {
             if (press < round) {
                 simonTurn();
             }
-        }, 500)
+        }, 1000)
     }
 //    Compare players sequence to simon's sequence match.
     function comparedSequence() {
@@ -133,13 +133,13 @@ $(document).ready(function () {
                         setTimeout(simonTurn, 500);
                     } else {
                         $('.display').text('XX');
-                        // scream.play();
+                        scream.play();
                     }
                 }
             }
         } else if (playerSays.length === round && round === 20){
             if (comparedSequence()) {
-                $('.display').text(';)');
+                $('.display').text(':)');
                 // cheer.play();
             } else {
                 if (mode === 'safe'){
@@ -149,7 +149,7 @@ $(document).ready(function () {
                     setTimeout(simonTurn, 500);
                 } else {
                     $('.display').text('XX');
-                    // scream.play();
+                    scream.play();
                 }
             }
         }
