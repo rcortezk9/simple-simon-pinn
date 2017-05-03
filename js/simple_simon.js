@@ -24,35 +24,35 @@ $(document).ready(function () {
 
 //    Functions for when the pads are press
     function greenPad() {
-        $(".tl").css("background-color", "gba(150, 255, 150, 1)");
+        $(".tl").css("background-color", "#96ff96");
         setTimeout(function() {
             $(".tl").css("background-color", "green");
-        }, 1000);
-        greenBoop.play();
+        }, 500);
+        // greenBoop.play();
     }
 
     function redPad() {
-        $(".tr").css("background-color", "rgba(255, 150, 150, 1)");
+        $(".tr").css("background-color", "#ff8a8a");
         setTimeout(function() {
             $(".tr").css("background-color", "red");
-        }, 1000);
-        redBoop.play();
+        }, 500);
+        // redBoop.play();
     }
 
     function yellowPad() {
-        $(".bl").css("background-color", "rgba(150, 255, 150, 1)");
+        $(".bl").css("background-color", "#fcffa8");
         setTimeout(function() {
             $(".bl").css("background-color", "yellow");
-        }, 1000);
-        yellowBoop.play();
+        }, 500);
+        // yellowBoop.play();
     }
 
     function bluePad() {
-        $(".br").css("background-color", "rgba(150, 255, 150, 1)");
+        $(".br").css("background-color", "#adb3ff");
         setTimeout(function() {
             $(".br").css("background-color", "blue");
-        }, 1000);
-        blueBoop.play();
+        }, 500);
+        // blueBoop.play();
     }
 
 //    Populate Simon says
@@ -77,9 +77,9 @@ $(document).ready(function () {
             }
             press++;
             if (press < round) {
-                simonPlays();
+                simonTurn();
             }
-        }, 1500)
+        }, 500)
     }
 //    Compare players sequence to simon's sequence match.
     function comparedSequence() {
@@ -103,7 +103,7 @@ $(document).ready(function () {
         playReset();
         round = 1;
         $(".display").text("01");
-        simonSayWhat();
+        simonSaysWhat();
     }
 
 //    Update display
@@ -119,7 +119,7 @@ $(document).ready(function () {
 
     function nextRound(){
         if (round < 20){
-            if (playerSays === round){
+            if (playerSays.length === round){
                 if (comparedSequence()){
                     round++;
                     displayUpdate();
@@ -133,14 +133,14 @@ $(document).ready(function () {
                         setTimeout(simonTurn, 500);
                     } else {
                         $('.display').text('XX');
-                        scream.play();
+                        // scream.play();
                     }
                 }
             }
         } else if (playerSays.length === round && round === 20){
             if (comparedSequence()) {
                 $('.display').text(';)');
-                cheer.play();
+                // cheer.play();
             } else {
                 if (mode === 'safe'){
                     $('.display').text('?!');
@@ -149,7 +149,7 @@ $(document).ready(function () {
                     setTimeout(simonTurn, 500);
                 } else {
                     $('.display').text('XX');
-                    scream.play();
+                    // scream.play();
                 }
             }
         }
@@ -186,7 +186,7 @@ $(document).ready(function () {
     // Start button
     $("#start-button").on("click", function() {
         gameReset();
-        simonPlays();
+        simonTurn();
     });
 
     //strict button
