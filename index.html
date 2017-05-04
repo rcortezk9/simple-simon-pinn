@@ -4,39 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Simon</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->
     <link rel="stylesheet" href="css/simple-simon-style.css">
 </head>
 <body>
-    <div class="container">
+<div id="container">
+    <div id="board">
+        <div id="tl"></div>
+        <div id="tr"></div>
+        <div id="bl"></div>
+        <div id="br"></div>
+    </div>
+    <div id="center">
+        <div id="logo">
+            Simon<span>&reg;</span>
+        </div>
         <div>
-            <h1>Simple Simon</h1>
-            <div class="container">
-                <div class="box">
-                    <div id="1" class="tl col-xs-6 pad"></div>
-                    <div id="2" class="tr col-xs-6 pad"></div>
-                    <div class="display">--</div>
-                    <div id="3" class="bl col-xs-6 pad"></div>
-                    <div id="4" class="br col-xs-6 pad"></div>
-                </div>
+            <div class="box">
+                <div id="display"></div>
+                count
             </div>
-            <br>
-            <div class="container">
-                <div class="text-center">
-                    <div class="btn-group">
-                        <button id="start-button" class="btn btn-lg btn-success">Start</button>
-                        <button id="strict-button" class="btn btn-lg">Strict</button>
+            <div class="box">
+                <div id="start-btn" class="btn"></div>
+                start
+            </div>
+            <div class="box">
+                <div id="indicator"></div>
+                <div id="strict-btn" class="btn"></div>
+                strict
+            </div>
+            <div id="center-bottom">
+                <div  class="slider-div">off</div>
+                <div  class="slider-div" id="slider-box">
+                    <div id="slider">
                     </div>
                 </div>
+                <div class="inline-div">on</div>
             </div>
         </div>
     </div>
+</div>
+    <!--</div>-->
+        <!--<h1>Simple Simon</h1>-->
+        <!--<div class="container">-->
+            <!--<div class="box">-->
+                <!--<div id="1" class="tl col-xs-6 pad"></div>-->
+                <!--<div id="2" class="tr col-xs-6 pad"></div>-->
+                <!--<div class="display">&#45;&#45;</div>-->
+                <!--<div id="3" class="bl col-xs-6 pad"></div>-->
+                <!--<div id="4" class="br col-xs-6 pad"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<br>-->
+        <!--<div class="container">-->
+            <!--<div class="text-center">-->
+                <!--<div class="btn-group">-->
+                    <!--<button id="start-button" class="btn btn-lg btn-success">Start</button>-->
+                    <!--<button id="strict-button" class="btn btn-lg">Strict</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
         crossorigin="anonymous"></script>
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/howler/1.1.28/howler.js'></script>
+
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
 
 <script src="js/simple_simon.js"></script>
 

@@ -3,6 +3,7 @@
  */
 $(document).ready(function () {
     'use strict';
+
 //    Starting Variables
     var simonSays = [];
     var playerSays = [];
@@ -11,6 +12,7 @@ $(document).ready(function () {
     var round = 1; // Starting 'level' of the game. A max of 20 rounds
     var press = 0; // the index of simonSays array, i.e. simon's pad presses
     var mode = "safe"; // safe and strict
+    var i = 0;
 
 
 //    Audio files
@@ -83,11 +85,13 @@ $(document).ready(function () {
     }
 //    Compare players sequence to simon's sequence match.
     function comparedSequence() {
+        console.log("comparedSequence fired");
         simonSequence = simonSays.slice(0, round).join("");
         playerSequence = playerSays.join("");
         if (simonSequence === playerSequence) {
             return true;
         } else {
+            playReset();
             return false;
         }
     }
