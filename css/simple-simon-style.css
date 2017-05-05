@@ -10,7 +10,7 @@ body {
     margin: 0 auto;
 }
 
-#board {
+#handheld {
     width: 400px;
     height: 400px;
     position: absolute;
@@ -20,7 +20,7 @@ body {
     border: 1px solid black;
 }
 
-#board div {
+#handheld div {
     border: 10px solid black;
     float: left;
     width: 200px;
@@ -157,79 +157,6 @@ body {
     margin: 0px;
 }
 
-/*@import url(https://fonts.googleapis.com/css?family=VT323);*/
-/*@import url(https://fonts.googleapis.com/css?family=Fredoka+One);*/
-
-/*h1 {*/
-    /*text-align: center;*/
-/*}*/
-/*.box {*/
-    /*width: 400px;*/
-    /*height: 382px;*/
-    /*margin: 20px auto;*/
-    /*padding-top: 5px;*/
-    /*border-style: solid;*/
-    /*border-radius: 50%;*/
-    /*border-width: 3px;*/
-    /*background-color: rgba(110, 110, 110, 1);*/
-/*}*/
-
-/*.display {*/
-    /*font-family: VT323;*/
-    /*font-size: 5em;*/
-    /*color: red;*/
-    /*margin: 133px auto 0;*/
-    /*text-align: center;*/
-    /*border-radius: 50%;*/
-    /*width: 100px;*/
-    /*height: 100px;*/
-    /*background-color: black;*/
-/*}*/
-
-/*#strict-button {*/
-    /*border-color: rgb(217, 83, 79);*/
-    /*background-color: rgb(217, 83, 79);*/
-    /*color: white;*/
-/*}*/
-
-/*.pad {*/
-    /*border-style: solid;*/
-    /*border-width: 5px;*/
-/*}*/
-
-/*.tl {*/
-    /*background-color: green;*/
-    /*width: 150px;*/
-    /*height: 150px;*/
-    /*left: 30px;*/
-    /*top: 18px;*/
-    /*border-radius: 100% 50px 100px 50px;*/
-/*}*/
-
-/*.tr {*/
-    /*background-color: red;*/
-    /*width: 150px;*/
-    /*height: 150px;*/
-    /*left: 65px;*/
-    /*top: 18px;*/
-    /*border-radius: 50px 100% 50px 100px;*/
-/*}*/
-
-/*.bl {*/
-    /*background-color: yellow;*/
-    /*width: 150px;*/
-    /*height: 150px;*/
-    /*left: 30px;*/
-    /*top: -37px;*/
-    /*border-radius: 50px 100px 50px 100%;*/
-
-/*}*/
-
-/*.br {*/
-    /*background-color: blue;*/
-    /*width: 150px;*/
-    /*height: 150px;*/
-    /*left: 65px;*/
-    /*top: -37px;*/
-    /*border-radius: 100px 50px 100% 50px;*/
-/*}*/
+.on {
+    margin-left: 25px !important;
+}
