@@ -125,12 +125,47 @@ $(document).ready(function () {
     function iterateThrough(){
 
         if(hasStarted){
-            //make the buttons unclickable while playing the sequence
+            //make the buttons unclickable during simon's sequence
             $("#handheld div").removeClass("clickable");
             playSequence(0);
             //after playing the sequence - wait user input
             checkInput(0);
         }
+    }
+
+    //make button clickable for player's sequence
+    function playSequence(i){
+        if(i>=sequence.length||!hasStarted){
+            $("#handheld div").addClass("clickable");
+            return;
+        }
+        playTune(sequence[i]);
+        setTimeout(function(){playSequence(i+1)},800);
+    }
+
+    //play tune from the sequence
+    function playTune(index){
+        var id=null;
+        switch(index){
+            case 0:
+                id="button-tl";
+                break;
+            case 1:
+                id="button-tr";
+                break;
+            case 2:
+                id="button-br";
+                break;
+            case 3:
+                id="button-bl";
+                break;
+        }
+        btnData[id].play();
+        //effect to when pressing the button
+        $("#"+id).addClass("clickeffect");
+        setTimeout(function(){
+            $("#"+id).removeClass("clickeffect");
+        }, 400);
     }
 // //    Starting Variables
 //     var simonSays = [];
