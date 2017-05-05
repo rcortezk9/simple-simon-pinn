@@ -17,6 +17,16 @@ $(document).ready(function () {
 //    user input (inclusive 0-3)
     var press = -1;
 
+    //howl object to play sound according to button press
+    var btnData = {"tl":new Howl({urls: ["audio/simonSound1.mp3"]}),
+                   "tr":new Howl({urls: ["audio/simonSound2.mp3"]}),
+                   "br":new Howl({urls: ["audio/simonSound3.mp3"]}),
+                   "bl":new Howl({urls: ["audio/simonSound4.mp3"]})};
+//sound to play on error
+    var errorSound=new Howl({urls:["https://raw.githubusercontent.com/kurumkan/simon/master/error.mp3"]});
+//sound to play on victory
+    var winSound=new Howl({urls:["https://raw.githubusercontent.com/kurumkan/simon/master/success.mp3"]});
+
     //event listener of the 4 buttons
     $("#handheld").on("mousedown",".clickable",function(event) {
         //only if start button has been pressed
@@ -59,7 +69,7 @@ $(document).ready(function () {
     $("#strict-btn").click(function(){
         //switching strict mode
         if(isOn){
-            isStrict=!isStrict;
+            isStrict = !isStrict;
             $("#indicator").toggleClass("ind-on");
         }
     });
@@ -72,13 +82,13 @@ $(document).ready(function () {
     });
     //function to reset the game, but not start
     function resetGame(){
-        hasStarted=false;
+        hasStarted = false;
         press = -1;
         sequence = [];
-        press = 0;
+        round = 0;
         display ("--");
         setTimeout(function(){
-            $("#board div").removeClass("clickable");
+            $("#handheld div").removeClass("clickable");
         },500);
     }
 
@@ -92,13 +102,13 @@ $(document).ready(function () {
         addRandomNumber();
         //starting iteration through the sequence
         iterateThrough();
-        press = 1;
-        display(level);
+        round = 1;
+        display(round);
     }
 
     //function to display data about game
     function display(data){
-        if(data===""){
+        if(data === ""){
             $("#display").text("");
         }else{
             //display 2 characters string prepending 0-s if needed
@@ -118,7 +128,7 @@ $(document).ready(function () {
 
     //adding random number in range 0-3 inclusive
     function addRandomNumber(){
-        var index=Math.floor(Math.random() * 4);
+        var index = Math.floor(Math.random() * 4);
         sequence.push(index);
     }
 
@@ -135,7 +145,7 @@ $(document).ready(function () {
 
     //make button clickable for player's sequence
     function playSequence(i){
-        if(i>=sequence.length||!hasStarted){
+        if(i >= sequence.length || !hasStarted){
             $("#handheld div").addClass("clickable");
             return;
         }
@@ -148,16 +158,16 @@ $(document).ready(function () {
         var id=null;
         switch(index){
             case 0:
-                id="button-tl";
+                id="tl";
                 break;
             case 1:
-                id="button-tr";
+                id="tr";
                 break;
             case 2:
-                id="button-br";
+                id="br";
                 break;
             case 3:
-                id="button-bl";
+                id="bl";
                 break;
         }
         btnData[id].play();
@@ -202,22 +212,22 @@ $(document).ready(function () {
                 return true;
             }
             //waiting user input
-            if(input===undefined||input<0){
+            if(press === undefined|| press < 0){
                 setTimeout(function(){checkInput(i)}, 100);
             }else{//got input
 
-                var temp=input;
-                input=-1;
+                var temp = press;
+                press = -1;
 
                 //the input was wrong
-                if(temp!==sequence[i]){
+                if(temp !== sequence[i]){
 
                     display("!!");
-                    errorSound.play();
+                    // errorSound.play();
 
                     $("#handheld div").removeClass("clickable");
                     setTimeout(function(){
-                        display(level);
+                        display(round);
                         $("#handheld div").addClass("clickable");
                     },1500);
                     //restart the game in case of strict mode

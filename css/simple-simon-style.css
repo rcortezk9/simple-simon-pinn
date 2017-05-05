@@ -84,7 +84,7 @@ body {
     width: 35px;
     height: 35px;
     margin: 0 auto;
-    border:3px #333 solid;
+    border: 3px #333 solid;
     border-radius: 20%;
     background: #ccc;
     color:#2ECC40;
@@ -154,9 +154,25 @@ body {
     border-radius: 10%;
     border:2px solid #333;
     box-sizing: border-box;
-    margin: 0px;
+    margin: 0;
 }
 
 .on {
     margin-left: 25px !important;
+}
+
+.clickable{
+    cursor: pointer;
+}
+
+.clickable:active,.clickeffect{
+    transform: translateY(1px);
+    opacity: 0.7;
+    -webkit-box-shadow: 1px -1px 21px 10px rgba(255,255,255,0.76); /*support safari*/
+    -moz-box-shadow: 1px -1px 21px 10px rgba(255,255,255,0.76);
+    box-shadow: 1px -1px 21px 10px rgba(255,255,255,0.76);
+}
+
+.ind-on{
+    background: #FF4136!important;
 }
