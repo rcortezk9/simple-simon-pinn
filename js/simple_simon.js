@@ -167,6 +167,77 @@ $(document).ready(function () {
             $("#"+id).removeClass("clickeffect");
         }, 400);
     }
+
+    //when player whens
+    function celebrate(){
+        setTimeout(function(){
+            winSound.play();
+        }, 500);
+
+        resetGame();
+        display("**");
+        $("#handheld div").addClass("clickeffect");
+        setTimeout(function(){
+            $("#handheld div").removeClass("clickeffect");
+        }, 3000);
+    }
+
+    //get user input and compare it to the according sequence entry
+    function checkInput(i){
+        if(hasStarted){
+            //if all the sequence has been reproduced without mistakes
+            if(i >= sequence.length){
+                round++;
+                //after passing level 20 - you are a winner!
+                if(round > 20){
+                    celebrate();
+                    return;
+                }
+                display(round);
+                //new entry to the sequence
+                addRandomNumber();
+                $("#handheld div").removeClass("clickable");
+                //play the sequence again(including the new entry)
+                setTimeout(function(){iterateThrough();},1500);
+                return true;
+            }
+            //waiting user input
+            if(input===undefined||input<0){
+                setTimeout(function(){checkInput(i)}, 100);
+            }else{//got input
+
+                var temp=input;
+                input=-1;
+
+                //the input was wrong
+                if(temp!==sequence[i]){
+
+                    display("!!");
+                    errorSound.play();
+
+                    $("#handheld div").removeClass("clickable");
+                    setTimeout(function(){
+                        display(level);
+                        $("#handheld div").addClass("clickable");
+                    },1500);
+                    //restart the game in case of strict mode
+                    if(isStrict)
+                        setTimeout(function(){startGame();},1500);
+                    //if normal mode - repeat the sequence(without adding new entry)
+                    else
+                        setTimeout(function(){iterateThrough();},1500);
+                    return false;
+                }
+                //correct input
+                else{
+                    //play according sound
+                    playTune(temp);
+                    //get the next user input
+                    setTimeout(function(){checkInput(i+1)},100);
+                }
+            }
+        }
+    }
 // //    Starting Variables
 //     var simonSays = [];
 //     var playerSays = [];
